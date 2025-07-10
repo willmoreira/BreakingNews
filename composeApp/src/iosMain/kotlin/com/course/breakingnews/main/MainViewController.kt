@@ -1,4 +1,4 @@
-package com.course.breakingnews
+package com.course.breakingnews.main
 
 import androidx.compose.ui.window.ComposeUIViewController
 

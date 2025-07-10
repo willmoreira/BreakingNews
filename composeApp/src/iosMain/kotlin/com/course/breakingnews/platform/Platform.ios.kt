@@ -1,4 +1,4 @@
-package com.course.breakingnews
+package com.course.breakingnews.platform
 
 import platform.UIKit.UIDevice
 

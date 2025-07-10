@@ -1,4 +1,4 @@
-package com.course.breakingnews
+package com.course.breakingnews.platform
 
 import android.os.Build
 import android.os.Build.*

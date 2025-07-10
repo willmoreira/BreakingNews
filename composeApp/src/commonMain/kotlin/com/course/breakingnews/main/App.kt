@@ -1,4 +1,4 @@
-package com.course.breakingnews
+package com.course.breakingnews.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth

@@ -1,4 +1,4 @@
-package com.course.breakingnews
+package com.course.breakingnews.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

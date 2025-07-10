@@ -1,4 +1,4 @@
-package com.course.breakingnews
+package com.course.breakingnews.platform
 
 expect class Platform() {
     val osName: String
