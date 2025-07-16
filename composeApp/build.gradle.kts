@@ -31,6 +31,13 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+
+            // Koin - Inject dependency
+            implementation(libs.koin.android)
+
+            // Ktor - Http Request
+            implementation(libs.ktor.client.android)
+            implementation(libs.ktor.client.okhttp)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -42,6 +49,14 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(compose.materialIconsExtended)
+
+            // Koin - Inject dependency
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+
+            // Ktor - Http Request
+            implementation(libs.bundles.ktor)
 
             // Coil
             implementation(libs.landscapist.coil3)
@@ -55,6 +70,11 @@ kotlin {
 
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+
+        iosMain.dependencies {
+            // Ktor - Http Request
+            implementation(libs.ktor.client.darwin)
         }
     }
 }

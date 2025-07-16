@@ -1,4 +1,4 @@
-package com.course.breakingnews.main
+package com.course.breakingnews.main.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.course.breakingnews.main.App
 import com.course.breakingnews.ui.card.BreakingNewsCard
 import com.course.breakingnews.ui.content.DeTailsContentSection
 import com.course.breakingnews.ui.header.DetailsHeaderSection

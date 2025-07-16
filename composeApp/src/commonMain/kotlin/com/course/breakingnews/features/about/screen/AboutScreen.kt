@@ -1,4 +1,4 @@
-package com.course.breakingnews.features.about
+package com.course.breakingnews.features.about.screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,21 +15,46 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.course.breakingnews.features.about.action.AboutAction
+import com.course.breakingnews.features.about.state.AboutState
+import com.course.breakingnews.features.about.viewmodel.AboutViewModel
 import com.course.breakingnews.platform.Platform
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun AboutScreen(
     onBackPressed: () -> Unit
 ) {
+    val viewModel = koinViewModel<AboutViewModel>()
+    val state by viewModel.state.collectAsStateWithLifecycle()
+
+    AboutContent(
+        state = state,
+        onBackPressed = onBackPressed,
+        action = viewModel::submitAction
+    )
+}
+
+@Composable
+fun AboutContent(
+    state: AboutState,
+    onBackPressed: () -> Unit,
+    action: (AboutAction) -> Unit,
+) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(androidx.compose.foundation.layout.WindowInsets.systemBars.asPaddingValues())
-        ) {
+    ) {
+
+
+
         items(makeItems()) { item ->
             AboutComponent(
                 title = item.first,
@@ -42,14 +67,21 @@ fun AboutScreen(
                 modifier = Modifier
                     .padding(16.dp)
             ) {
+                when (state){
+                    is AboutState.Idle -> {}
+                    is AboutState.Loading -> {}
+                    is AboutState.OnBackPressed -> {
+                        action(AboutAction.Idle)
+                        onBackPressed.invoke()
+                    }
+                }
+
                 Button(
                     colors = ButtonDefaults.buttonColors(
                         containerColor =  Color.LightGray,
                         contentColor = Color.Black
                     ),
-                    onClick = {
-                        onBackPressed.invoke()
-                    }
+                    onClick = { action(AboutAction.RequestOnBackPressed) }
                 ) {
                     Text("Voltar")
                 }

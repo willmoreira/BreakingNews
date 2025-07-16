@@ -2,8 +2,6 @@ package com.course.breakingnews.features.home.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.course.breakingnews.features.details.action.DetailsAction
-import com.course.breakingnews.features.details.state.DetailsState
 import com.course.breakingnews.features.home.action.HomeAction
 import com.course.breakingnews.features.home.state.HomeState
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -28,6 +26,8 @@ class HomeViewModel: ViewModel() {
         pendingActions.collect() {action ->
             when (action) {
                 is HomeAction.Idle -> requestIdleState()
+                is HomeAction.RequestNavigateToDetails -> navigateToDetails()
+                is HomeAction.RequestNavigateToAbout -> navigateToAbout()
             }
         }
     }
@@ -35,6 +35,18 @@ class HomeViewModel: ViewModel() {
     private fun requestIdleState() {
         viewModelScope.launch {
             HomeState.Idle.updateState()
+        }
+    }
+
+    private fun navigateToDetails() {
+        viewModelScope.launch {
+            HomeState.NavigateToDetails.updateState()
+        }
+    }
+
+    private fun navigateToAbout() {
+        viewModelScope.launch {
+            HomeState.NavigateToAbout.updateState()
         }
     }
 
