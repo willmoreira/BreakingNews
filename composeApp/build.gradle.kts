@@ -61,9 +61,6 @@ kotlin {
             // Coil
             implementation(libs.landscapist.coil3)
 
-            //Serialization
-            implementation(libs.kotlinx.serialization.json)
-
             //Navigation
             implementation(libs.compose.navigation)
         }

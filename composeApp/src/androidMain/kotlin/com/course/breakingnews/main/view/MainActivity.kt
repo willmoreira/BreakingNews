@@ -33,24 +33,17 @@ fun ComponentsPreview() {
             title = "aqui aqui aqiu",
             author = "William Moreira",
             date = "9 de abril de 2025",
+            imageUrl = "",
             onClick = {}
         )
-        DetailsHeaderSection( onClick = {})
+        DetailsHeaderSection(
+            urlToImage = ""
+            , onClick = {}
+        )
         DeTailsContentSection(
             content = """
-                Teste teste Teste aqui teste Teste aqui teste
-                Teste aqui teste Teste aqui teste Teste aqui teste
-                Teste aqui teste
-                Teste aqui teste Teste aqui teste Teste aqui teste
-                Teste aqui teste Teste aqui teste Teste aqui teste
-                Teste aqui teste
-                Teste aqui teste Teste aqui teste Teste aqui teste
-                Teste aqui teste Teste aqui teste Teste aqui teste
-                Teste aqui teste
-                Teste aqui teste Teste aqui teste Teste aqui teste
-                Teste aqui teste Teste aqui teste Teste aqui teste
-                Teste aqui teste
-                """.trimIndent()
+                
+            """.trimIndent()
         )
     }
 }

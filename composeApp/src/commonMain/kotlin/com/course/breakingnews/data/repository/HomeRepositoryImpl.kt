@@ -24,7 +24,7 @@ class HomeRepositoryImpl(
     }
 
     companion object {
-        const val KEY_API = "6b3283a9c8b04355957c0e1a629e295c"
+        const val KEY_API = "9c2fc9032c0e479c8b9abbc07ccf9d26"
         const val KEY_COUNTRY = "us"
         const val KEY_BREAKING_NEWS_ENDPOINT = "/v2/top-headlines"
         const val KEY_API_PARAM = "apiKey"

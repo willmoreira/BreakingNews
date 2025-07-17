@@ -7,8 +7,12 @@ sealed interface HomeState {
     data object Idle: HomeState
     data object Loading: HomeState
 
-    data object NavigateToDetails: HomeState
+    data class NavigateToDetails(
+        val urlToImage: String,
+        val description: String
+    ): HomeState
+
     data object NavigateToAbout: HomeState
 
-    //data class ShowData(val data: List<NewsDomain>) : HomeState
+    data class ShowData(val data: List<NewsDomain>) : HomeState
 }
